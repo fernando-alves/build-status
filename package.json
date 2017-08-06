@@ -8,7 +8,10 @@
   },
   "author": "Fernando Junior",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "async": "^2.5.0",
+    "request": "^2.81.0"
+  },
   "devDependencies": {
     "eslint": "^4.3.0",
     "eslint-config-prettier": "^2.3.0",
