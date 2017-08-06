@@ -14,4 +14,25 @@ describe('Go', () => {
       }).throw();
     });
   });
+
+  it('lists all pipelines', done => {
+    const config = {
+      hostname: 'localhost',
+      username: 'user',
+      password: 'password'
+    };
+    const allPipelines = ['api', 'coin'];
+    const gateway = {
+      pipelines: function(done) {
+        return done(null, allPipelines);
+      }
+    };
+
+    const go = new Go(config, gateway);
+
+    go.pipelines((err, pipelines) => {
+      should(pipelines).eql(allPipelines);
+      done();
+    });
+  });
 });
