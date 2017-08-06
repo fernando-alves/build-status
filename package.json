@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha $(find test -name '*.js')"
+    "test": "mocha test/**",
+    "lint": "eslint lib/**/*.js test/**/*.js",
+    "format": "prettier-eslint --write lib/**/*.js test/**/*.js",
+    "dance": "npm run format && npm run lint && npm run test"
   },
   "author": "Fernando Junior",
   "license": "ISC",
@@ -18,6 +21,7 @@
     "eslint-plugin-prettier": "^2.1.2",
     "mocha": "^3.5.0",
     "prettier": "^1.5.3",
+    "prettier-eslint-cli": "^4.1.1",
     "should": "^11.2.1"
   }
 }
