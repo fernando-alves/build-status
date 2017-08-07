@@ -16,13 +16,13 @@ describe('Http Client', () => {
   });
 
   describe('get', () => {
-    it('builds url based on configuration', done => {
-      const config = {
-        hostname: 'http://myhost',
-        username: 'user',
-        password: 'secret'
-      };
+    const config = {
+      hostname: 'http://myhost',
+      username: 'user',
+      password: 'secret'
+    };
 
+    it('builds url based on configuration', done => {
       const requester = {
         get: function(options, done) {
           should(options.url).eql('http://user:secret@myhost/');
@@ -36,12 +36,6 @@ describe('Http Client', () => {
     });
 
     it('parses response body to json', done => {
-      const config = {
-        hostname: 'http://myhost',
-        username: 'user',
-        password: 'secret'
-      };
-
       const requester = {
         get: function(options, done) {
           done(null, {}, '{ "pipeline": "coin" }');
@@ -52,6 +46,21 @@ describe('Http Client', () => {
 
       client.get('', (err, body) => {
         should(body.pipeline).eql('coin');
+        done();
+      });
+    });
+
+    it('propagates any error', done => {
+      const requester = {
+        get: function(options, done) {
+          done(new Error('boom'));
+        }
+      };
+
+      const client = new HttpClient(config, requester);
+
+      client.get('', err => {
+        should(err.message).eql('boom');
         done();
       });
     });
