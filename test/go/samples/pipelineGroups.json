@@ -1,0 +1,48 @@
+[
+  {
+    "name": "defaultGroup",
+    "pipelines": [
+      {
+        "label": "${COUNT}",
+        "materials": [
+          {
+            "fingerprint": "14a430a62b99d79663ae0077c821ea68ce1d885ebb0977329bd67665f360ce15",
+            "type": "Git",
+            "description": "URL: https://github.com/fernando-alves/coin, Branch: master"
+          }
+        ],
+        "stages": [{ "name": "flip" }],
+        "name": "coin"
+      }
+    ]
+  },
+  {
+    "name": "javakihon",
+    "pipelines": [
+      {
+        "label": "${COUNT}",
+        "materials": [
+          {
+            "fingerprint": "638d03c77c60431c5ade073562f0c4079fc48d249bc383f3f899bf8be5427a25",
+            "type": "Git",
+            "description": "URL: https://github.com/fernando-alves/javakihon-material, Branch: master"
+          }
+        ],
+        "stages": [{ "name": "defaultStage" }],
+        "name": "material"
+      },
+      {
+        "label": "${COUNT}",
+        "materials": [
+          {
+            "fingerprint": "c9294971fb6c8b8fcf195a82b60c5fb3a013cd5bd9f9241d74ac72493d9cf225",
+            "type": "Git",
+            "description": "URL: https://github.com/ronualdo/javakihon, Branch: master"
+          }
+        ],
+        "stages": [{ "name": "build" }],
+        "name": "app"
+      }
+    ]
+  }
+]
