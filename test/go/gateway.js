@@ -33,5 +33,22 @@ describe('Gateway', () => {
         done();
       });
     });
+
+    it('gets history of an pipeline', done => {
+      const client = {
+        get: function(path, callback) {
+          should(path).eql('/go/api/pipelines/coin/history/0');
+          return callback(null, require('./samples/pipelineHistory.json'));
+        }
+      };
+
+      const gateway = new Gateway(client);
+
+      gateway.pipelineHistory('coin', (err, history) => {
+        should.ifError(err);
+        should(history.length).eql(2);
+        done();
+      });
+    });
   });
 });

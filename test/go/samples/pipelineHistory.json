@@ -1,0 +1,123 @@
+{
+  "pagination": { "offset": 0, "total": 2, "page_size": 10 },
+  "pipelines": [
+    {
+      "label": "2",
+      "name": "coin",
+      "natural_order": 2.0,
+      "can_run": true,
+      "stages": [
+        {
+          "result": "Failed",
+          "jobs": [
+            {
+              "state": "Completed",
+              "result": "Failed",
+              "name": "job",
+              "id": 2,
+              "scheduled_date": 1501978239798
+            }
+          ],
+          "name": "flip",
+          "rerun_of_counter": null,
+          "approval_type": "success",
+          "scheduled": true,
+          "operate_permission": true,
+          "approved_by": "anonymous",
+          "can_run": true,
+          "id": 2,
+          "counter": "1"
+        }
+      ],
+      "id": 2,
+      "build_cause": {
+        "trigger_message": "Forced by anonymous",
+        "approver": "anonymous",
+        "material_revisions": [
+          {
+            "material": {
+              "fingerprint": "14a430a62b99d79663ae0077c821ea68ce1d885ebb0977329bd67665f360ce15",
+              "description": "URL: https://github.com/fernando-alves/coin, Branch: master",
+              "id": 1,
+              "type": "Git"
+            },
+            "modifications": [
+              {
+                "modified_time": 1501975368000,
+                "user_name": "Fernando \u003Cfernandoasfj@gmail.com\u003E",
+                "id": 1,
+                "revision": "81f423950f81e2a8c3ed1431c5c6a26eecbb689e",
+                "email_address": null,
+                "comment": "Feeling lucky?"
+              }
+            ],
+            "changed": false
+          }
+        ],
+        "trigger_forced": true
+      },
+      "preparing_to_schedule": false,
+      "counter": 2,
+      "comment": null
+    },
+    {
+      "label": "1",
+      "name": "coin",
+      "natural_order": 1.0,
+      "can_run": true,
+      "stages": [
+        {
+          "result": "Passed",
+          "jobs": [
+            {
+              "state": "Completed",
+              "result": "Passed",
+              "name": "job",
+              "id": 1,
+              "scheduled_date": 1501977451711
+            }
+          ],
+          "name": "flip",
+          "rerun_of_counter": null,
+          "approval_type": "success",
+          "scheduled": true,
+          "operate_permission": true,
+          "approved_by": "changes",
+          "can_run": true,
+          "id": 1,
+          "counter": "1"
+        }
+      ],
+      "id": 1,
+      "build_cause": {
+        "trigger_message": "modified by Fernando \u003Cfernandoasfj@gmail.com\u003E",
+        "approver": "",
+        "material_revisions": [
+          {
+            "material": {
+              "fingerprint": "14a430a62b99d79663ae0077c821ea68ce1d885ebb0977329bd67665f360ce15",
+              "description": "URL: https://github.com/fernando-alves/coin, Branch: master",
+              "id": 1,
+              "type": "Git"
+            },
+            "modifications": [
+              {
+                "modified_time": 1501975368000,
+                "user_name": "Fernando \u003Cfernandoasfj@gmail.com\u003E",
+                "id": 1,
+                "revision": "81f423950f81e2a8c3ed1431c5c6a26eecbb689e",
+                "email_address": null,
+                "comment": "Feeling lucky?"
+              }
+            ],
+            "changed": true
+          }
+        ],
+        "trigger_forced": false
+      },
+      "preparing_to_schedule": false,
+      "counter": 1,
+      "comment": null
+    }
+  ]
+}
