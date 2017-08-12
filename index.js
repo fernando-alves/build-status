@@ -7,4 +7,4 @@ const httpClient = new HttpClient(config);
 const gateway = new Gateway(httpClient);
 const go = new Go(gateway);
 
-go.pipelines(console.log);
+go.pipelines(console.log); // eslint-disable-line
