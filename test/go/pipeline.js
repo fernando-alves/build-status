@@ -3,7 +3,7 @@ const Pipeline = require('../../lib/go/pipeline');
 
 describe('Pipeline', () => {
   it('includes pipeline result on history', () => {
-    const pipelineInstances = [
+    const history = [
       {
         label: '2',
         stages: [
@@ -21,13 +21,13 @@ describe('Pipeline', () => {
         ]
       }
     ];
-    const pipeline = new Pipeline('name', pipelineInstances);
+    const pipeline = new Pipeline('name', history);
     should(pipeline.history[0].result).eql('failed');
     should(pipeline.history[1].result).eql('passed');
   });
 
   it('is considred failed if at least 1 stage has failed', () => {
-    const pipelineInstance = [
+    const history = [
       {
         label: '1',
         stages: [
@@ -40,7 +40,7 @@ describe('Pipeline', () => {
         ]
       }
     ];
-    const pipeline = new Pipeline('name', pipelineInstance);
+    const pipeline = new Pipeline('name', history);
     should(pipeline.history[0].result).eql('failed');
   });
 });
