@@ -11,7 +11,10 @@ const go = new Go(gateway);
 const prettyPrint = pipeline => {
   console.log(`Pipeline: ${pipeline.name}`);
   pipeline.history.forEach(instance => {
-    console.log(`  Label: ${instance.label}\n  Result: ${instance.result}`);
+    Object.keys(instance).forEach(key => {
+      console.log(`  ${key}: ${instance[key]}`);
+    });
+    console.log();
   });
   console.log();
 };
