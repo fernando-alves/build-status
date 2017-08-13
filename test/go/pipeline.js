@@ -26,7 +26,7 @@ describe('Pipeline', () => {
     should(pipeline.history[1].result).eql('passed');
   });
 
-  it('is considred failed if at least 1 stage has failed', () => {
+  it('is considered failed if at least 1 stage has failed', () => {
     const history = [
       {
         label: '1',
