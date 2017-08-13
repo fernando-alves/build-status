@@ -38,7 +38,11 @@ describe('Go', () => {
     const go = new Go(gateway);
 
     go.pipelines((err, pipelines) => {
-      should(pipelines[0].history).eql(['1', '2']);
+      const history = pipelines[0].history;
+      const instanceLabels = history.map(pipelineInstance => {
+        return pipelineInstance.label;
+      });
+      should(instanceLabels).eql(['1', '2']);
       done();
     });
   });
