@@ -9,7 +9,7 @@ describe('Go', () => {
         return done(null, allPipelines);
       },
       pipelineHistory: function(pipelineName, done) {
-        return done(null, require('./samples/pipelineHistory'));
+        return done(null, require('./samples/pipelineHistory').pipelines);
       }
     };
 
@@ -31,7 +31,7 @@ describe('Go', () => {
         return done(null, allPipelines);
       },
       pipelineHistory: function(pipelineName, done) {
-        return done(null, require('./samples/pipelineHistory'));
+        return done(null, require('./samples/pipelineHistory').pipelines);
       }
     };
 
