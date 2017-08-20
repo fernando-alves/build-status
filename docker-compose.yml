@@ -1,0 +1,31 @@
+version: '3.2'
+
+services:
+  app:
+    build: .
+    image: build-status
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:3.0.15
+
+  gocd-server:
+    image: gocd/gocd-server:v17.8.0
+    ports:
+      - 8153:8153
+      - 8154:8154
+    volumes:
+      - gocd-server-data:/godata
+
+  gocd-agent:
+    image: gocd/gocd-agent-alpine-3.5:v17.8.0
+    environment:
+      - GO_SERVER_URL=https://gocd-server:8154/go
+      - AGENT_AUTO_REGISTER_ENVIRONMENTS=test
+      - AGENT_AUTO_REGISTER_KEY
+    depends_on:
+      - gocd-server
+
+volumes:
+   gocd-server-data:
