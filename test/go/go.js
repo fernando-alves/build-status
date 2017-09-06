@@ -16,9 +16,7 @@ describe('Go', () => {
     const go = new Go(gateway);
 
     go.pipelines((err, pipelines) => {
-      const pipelineNames = pipelines.map(pipeline => {
-        return pipeline.name;
-      });
+      const pipelineNames = pipelines.map(pipeline => pipeline.name);
       should(pipelineNames).eql(allPipelines);
       done();
     });
@@ -39,9 +37,7 @@ describe('Go', () => {
 
     go.pipelines((err, pipelines) => {
       const history = pipelines[0].history;
-      const instanceLabels = history.map(pipelineInstance => {
-        return pipelineInstance.label;
-      });
+      const instanceLabels = history.map(pipelineInstance => pipelineInstance.label);
       should(instanceLabels).eql(['1', '2']);
       done();
     });

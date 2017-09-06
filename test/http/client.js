@@ -9,9 +9,7 @@ describe('Http Client', () => {
         password: 'secret'
       };
 
-      should(() => {
-        new HttpClient(invalidConfig);
-      }).throw();
+      should(() => new HttpClient(invalidConfig)).throw();
     });
   });
 
